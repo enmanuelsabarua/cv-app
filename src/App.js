@@ -3,6 +3,7 @@ import './styles/App.css';
 import uniqid from 'uniqid';
 import GeneralInfo from './components/GeneralInfo';
 import PracticalExp from './components/PracticalExp';
+import Education from './components/Education';
 
 class App extends Component {
   constructor() {
@@ -10,6 +11,7 @@ class App extends Component {
 
     this.handlePersonalInfoChange = this.handlePersonalInfoChange.bind(this);
     this.handleExperienceChange = this.handleExperienceChange.bind(this);
+    this.handleEducationChange = this.handleEducationChange.bind(this);
     this.deleteExperience = this.deleteExperience.bind(this);
 
     this.state = {
@@ -40,6 +42,26 @@ class App extends Component {
         from: '',
         to: '',
       },
+      educations: [
+        {
+          id: uniqid(),
+          university: '',
+          city: '',
+          degree: '',
+          subject: '',
+          from: '',
+          to: '',
+        }
+      ],
+      education: {
+        id: uniqid(),
+        university: '',
+        city: '',
+        degree: '',
+        subject: '',
+        from: '',
+        to: '',
+      },
     }
   }
 
@@ -52,8 +74,6 @@ class App extends Component {
         }
       }
     });
-
-    // console.log(this.state.personalInfo);
   }
 
   handleExperienceChange = e => {
@@ -64,9 +84,18 @@ class App extends Component {
           [e.target.id]: e.target.value
         }
       }
-    })
+    });
+  }
 
-    // console.log(this.state.experience);
+  handleEducationChange = e => {
+    this.setState(prevState => {
+      return {
+        education: {
+          ...prevState.education,
+          [e.target.id]: e.target.value
+        }
+      }
+    });
   }
 
   addNewExperience = () => {
@@ -84,12 +113,29 @@ class App extends Component {
       }
     })
 
-    console.log(this.state.experiences);
   }
 
-  deleteExperience = (id) => {
+  addEducation = () => {
+    this.setState(prevState => {
+      return {
+        educations: [...prevState.educations, this.state.education],
+        education: {
+          id: uniqid(),
+          university: '',
+          city: '',
+          degree: '',
+          subject: '',
+          from: '',
+          to: '',
+        },
+      }
+    })
+
+  }
+
+  deleteExperience = (id, section) => {
     this.setState({
-        experiences: this.state.experiences.filter(experience => experience.id !== id),
+        [section]: this.state[section].filter(experience => experience.id !== id),
       }
     );
   }
@@ -107,8 +153,12 @@ class App extends Component {
 
           <h2>Experience</h2>
           <PracticalExp experiences={this.state.experiences} experience={this.state.experience} handleExperienceChange={this.handleExperienceChange} deleteExperience={this.deleteExperience}/>
-
           <button onClick={this.addNewExperience} type="button">Add</button>
+
+          <h2>Education</h2>
+          <Education educations={this.state.educations} handleEducationChange={this.handleEducationChange} deleteExperience={this.deleteExperience}/>
+          <button onClick={this.addEducation} type="button">Add</button>
+
         </form>
         </main>
       </div>

@@ -18,7 +18,7 @@ class PracticalExp extends Component {
                                 <input value={length <= 1 ? experience.from : this.value} onChange={this.props.handleExperienceChange} id="from" type="text" placeholder="From" />
                                 <input value={length <= 1 ? experience.to : this.value} onChange={this.props.handleExperienceChange} id="to" type="text" placeholder="To" />
 
-                                <button onClick={() => this.props.deleteExperience(experience.id)} type="button">Delete</button>
+                                <button onClick={() => this.props.deleteExperience(experience.id, 'experiences')} type="button">Delete</button>
                         </section>
                     );
                 })}
