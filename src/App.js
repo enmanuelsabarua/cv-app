@@ -10,6 +10,7 @@ class App extends Component {
 
     this.handlePersonalInfoChange = this.handlePersonalInfoChange.bind(this);
     this.handleExperienceChange = this.handleExperienceChange.bind(this);
+    this.deleteExperience = this.deleteExperience.bind(this);
 
     this.state = {
       personalInfo: {
@@ -71,7 +72,7 @@ class App extends Component {
   addNewExperience = () => {
     this.setState(prevState => {
       return {
-        experiences: [this.state.experience, ...prevState.experiences ],
+        experiences: [...prevState.experiences, this.state.experience],
         experience: {
           id: uniqid(),
           position: '',
@@ -86,6 +87,13 @@ class App extends Component {
     console.log(this.state.experiences);
   }
 
+  deleteExperience = (id) => {
+    this.setState({
+        experiences: this.state.experiences.filter(experience => experience.id !== id),
+      }
+    );
+  }
+
   render() {
     return (
       <div>
@@ -98,7 +106,8 @@ class App extends Component {
           <GeneralInfo handlePersonalInfoChange={this.handlePersonalInfoChange} personalInfo={this.state.personalInfo}/>
 
           <h2>Experience</h2>
-          <PracticalExp experiences={this.state.experiences} experience={this.state.experience} handleExperienceChange={this.handleExperienceChange}/>
+          <PracticalExp experiences={this.state.experiences} experience={this.state.experience} handleExperienceChange={this.handleExperienceChange} deleteExperience={this.deleteExperience}/>
+
           <button onClick={this.addNewExperience} type="button">Add</button>
         </form>
         </main>
