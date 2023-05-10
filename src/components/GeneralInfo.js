@@ -8,15 +8,13 @@ class GeneralInfo extends Component {
     render() {
         return (
             <section>
-                <h2>Personal Information</h2>
-
-                    <input id="fName" onChange={this.props.handlePersonalInfoChange} type="text" placeholder="First Name"/>
-                    <input id="lName" onChange={this.props.handlePersonalInfoChange} type="text" placeholder="Last Name"/>
-                    <input id="title" onChange={this.props.handlePersonalInfoChange} type="text" placeholder="Title"/>
-                    <input id="address" onChange={this.props.handlePersonalInfoChange} type="text" placeholder="Address"/>
-                    <input id="phoneNumber" onChange={this.props.handlePersonalInfoChange} type="text" placeholder="Phone Number"/>
-                    <input id="email" onChange={this.props.handlePersonalInfoChange} type="email" placeholder="Email"/>
-                    <textarea id="description" onChange={this.props.handlePersonalInfoChange} name="description" placeholder="Description"></textarea>
+                    <input id="fName" onChange={this.props.handlePersonalInfoChange} type="text" placeholder="First Name" value={this.props.personalInfo.fName}/>
+                    <input id="lName" onChange={this.props.handlePersonalInfoChange} type="text" placeholder="Last Name" value={this.props.personalInfo.lName}/>
+                    <input id="title" onChange={this.props.handlePersonalInfoChange} type="text" placeholder="Title" value={this.props.personalInfo.title}/>
+                    <input id="address" onChange={this.props.handlePersonalInfoChange} type="text" placeholder="Address" value={this.props.personalInfo.address}/>
+                    <input id="phoneNumber" onChange={this.props.handlePersonalInfoChange} type="text" placeholder="Phone Number" value={this.props.personalInfo.phoneNumber}/>
+                    <input id="email" onChange={this.props.handlePersonalInfoChange} type="email" placeholder="Email" value={this.props.personalInfo.email}/>
+                    <textarea id="description" onChange={this.props.handlePersonalInfoChange} name="description" placeholder="Description" value={this.props.personalInfo.description}></textarea>
             </section>
         );
     }
