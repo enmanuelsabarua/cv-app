@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import uniqid from 'uniqid';
-import GeneralInfo from './components/GeneralInfo';
-import PracticalExp from './components/PracticalExp';
-import Education from './components/Education';
+import Form from './components/Form';
+import Resume from './components/Resume';
 
 class App extends Component {
   constructor() {
     super();
 
-    this.handlePersonalInfoChange = this.handlePersonalInfoChange.bind(this);
-    this.handleExperienceChange = this.handleExperienceChange.bind(this);
-    this.handleEducationChange = this.handleEducationChange.bind(this);
+    this.handleSectionChange = this.handleSectionChange.bind(this);
+    this.addNewSection = this.addNewSection.bind(this);
     this.deleteExperience = this.deleteExperience.bind(this);
 
     this.state = {
@@ -65,72 +63,26 @@ class App extends Component {
     }
   }
 
-  handlePersonalInfoChange = e => {
+  handleSectionChange = (e, section) => {
     this.setState(prevState => {
       return {
-        personalInfo: {
-          ...prevState.personalInfo,
+        [section]: {
+          ...prevState[section],
           [e.target.id]: e.target.value
         }
       }
     });
   }
 
-  handleExperienceChange = e => {
+  addNewSection = (sectionArray, section, sectionObject) => {
     this.setState(prevState => {
       return {
-        experience: {
-          ...prevState.experience,
-          [e.target.id]: e.target.value
-        }
+        [sectionArray]: [...prevState[sectionArray], this.state[section]],
+        [section]: sectionObject,
       }
     });
-  }
 
-  handleEducationChange = e => {
-    this.setState(prevState => {
-      return {
-        education: {
-          ...prevState.education,
-          [e.target.id]: e.target.value
-        }
-      }
-    });
-  }
-
-  addNewExperience = () => {
-    this.setState(prevState => {
-      return {
-        experiences: [...prevState.experiences, this.state.experience],
-        experience: {
-          id: uniqid(),
-          position: '',
-          company: '',
-          city: '',
-          from: '',
-          to: '',
-        },
-      }
-    })
-
-  }
-
-  addEducation = () => {
-    this.setState(prevState => {
-      return {
-        educations: [...prevState.educations, this.state.education],
-        education: {
-          id: uniqid(),
-          university: '',
-          city: '',
-          degree: '',
-          subject: '',
-          from: '',
-          to: '',
-        },
-      }
-    })
-
+    console.log(this.state.experiences);
   }
 
   deleteExperience = (id, section) => {
@@ -147,19 +99,8 @@ class App extends Component {
           <h1>CV Generator</h1>
         </header>
         <main className='main'>
-        <form>
-          <h2>Personal Information</h2>
-          <GeneralInfo handlePersonalInfoChange={this.handlePersonalInfoChange} personalInfo={this.state.personalInfo}/>
-
-          <h2>Experience</h2>
-          <PracticalExp experiences={this.state.experiences} experience={this.state.experience} handleExperienceChange={this.handleExperienceChange} deleteExperience={this.deleteExperience}/>
-          <button onClick={this.addNewExperience} type="button">Add</button>
-
-          <h2>Education</h2>
-          <Education educations={this.state.educations} handleEducationChange={this.handleEducationChange} deleteExperience={this.deleteExperience}/>
-          <button onClick={this.addEducation} type="button">Add</button>
-
-        </form>
+          <Form handleSectionChange={this.handleSectionChange} personalInfo={this.state.personalInfo} experiences={this.state.experiences} educations={this.state.educations} deleteExperience={this.deleteExperience} addNewSection={this.addNewSection}/>
+          <Resume />
         </main>
       </div>
     );

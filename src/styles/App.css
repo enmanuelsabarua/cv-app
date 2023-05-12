@@ -23,36 +23,8 @@ h2 {
 }
 
 .main {
-  max-width: 90%;
-  width: 900px;
-  margin: 0 auto;
-  background-color: #FFF8DE;
-  border-radius: 10px;
-  padding: 20px;
-}
-
-input, textarea {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  display: block;
-  width: 100%;
-  font-size: 16px;
-}
-
-button {
-  display: block;
-  margin-bottom: 10px;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  background-color: #D6E8DB;
-  border-radius: 5px;
-  transition: background-color .3s;
-}
-
-button:hover {
-  cursor: pointer;
-  background-color: #d6e8dbc1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
 }
