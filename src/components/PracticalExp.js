@@ -10,7 +10,7 @@ class PracticalExp extends Component {
             <>
                 {this.props.experiences.map((experience, index) => {
                     return (
-                        <section key={experience.id}>
+                        <section key={experience.id} className="form-section">
                                 <input value={index >= 1 ? experience.position : this.value} onChange={(e) => this.props.handleSectionChange(e, 'experience')} id="position" type="text" placeholder="Position" />
                                 <input value={index >= 1 ? experience.company : this.value} onChange={(e) => this.props.handleSectionChange(e, 'experience')} id="company" type="text" placeholder="Company" />
                                 <input value={index >= 1 ? experience.city : this.value} onChange={(e) => this.props.handleSectionChange(e, 'experience')} id="city" type="text" placeholder="City" />

@@ -1,11 +1,14 @@
 .form {
-  /* max-width: 90%;
-  width: 900px;
-  margin: 0 auto; */
   background-color: #FFF8DE;
   border-radius: 10px;
   padding: 20px;
   flex-basis: 700px;
+  box-shadow: 1px 6px 15px -5px rgba(0,0,0,0.30);
+}
+
+.form-section {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.379);
+  margin-bottom: 10px;
 }
 
 input, textarea {
@@ -18,18 +21,46 @@ input, textarea {
     font-size: 16px;
   }
   
-  button {
-    display: block;
-    margin-bottom: 10px;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #D6E8DB;
-    border-radius: 5px;
-    transition: background-color .3s;
-  }
-  
-  button:hover {
-    cursor: pointer;
-    background-color: #d6e8dbc1;
-  }
+button {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #D6E8DB;
+  border-radius: 5px;
+  transition: background-color .3s;
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #d6e8dbc1;
+}
+
+.create-resume-btn {
+  background-color: rgb(66, 173, 98);
+  color: white;
+}
+
+.create-resume-btn:hover {
+  background-color: rgba(66, 173, 98, 0.605);
+}
+
+.load-example-btn {
+  background-color: rgb(219, 144, 30);
+  color: white;
+}
+
+.load-example-btn:hover {
+  background-color: rgba(219, 143, 30, 0.537);
+}
+
+.reset-btn {
+  background-color: rgb(225, 44, 44);
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: rgba(225, 44, 44, 0.594);
+}

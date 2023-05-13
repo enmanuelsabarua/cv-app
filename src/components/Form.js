@@ -31,10 +31,10 @@ class Form extends Component {
             to: '',
           };
 
-          const { handleSectionChange, personalInfo, experiences, deleteExperience, educations, addNewSection } = this.props;
+          const { handleSectionChange, personalInfo, experiences, deleteExperience, educations, addNewSection, print, loadExample, reset } = this.props;
 
         return (
-            <form className="form">
+            <form className="form noprint">
                 <h2>Personal Information</h2>
                 <GeneralInfo handleSectionChange={handleSectionChange} personalInfo={personalInfo}/>
 
@@ -45,6 +45,10 @@ class Form extends Component {
                 <h2>Education</h2>
                 <Education educations={educations} handleSectionChange={handleSectionChange} deleteExperience={deleteExperience}/>
                 <button onClick={() => addNewSection('educations', 'education', education)} type="button">Add</button>
+
+                <button onClick={() => print('resume')} className="create-resume-btn" type="button">Generate PDF</button>
+                <button onClick={() => loadExample()} className="load-example-btn" type="button">Load Example</button>
+                <button onClick={() => reset()} className="reset-btn" type="button">Reset</button>
             </form>
         );
     }

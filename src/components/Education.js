@@ -10,7 +10,7 @@ class Education extends Component {
             <>
                 {this.props.educations.map((education, index) => {
                     return (
-                        <section key={education.id}>
+                        <section key={education.id} className="form-section">
                                 <input value={index >= 1 ? education.university : this.value} onChange={(e) => this.props.handleSectionChange(e, 'education')} id="university" type="text" placeholder="University Name " />
                                 <input value={index >= 1 ? education.city : this.value} onChange={(e) => this.props.handleSectionChange(e, 'education')} id="city" type="text" placeholder="City" />
                                 <input value={index >= 1 ? education.degree : this.value} onChange={(e) => this.props.handleSectionChange(e, 'education')} id="degree" type="text" placeholder="Degree" />

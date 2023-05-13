@@ -9,9 +9,7 @@ class Resume extends Component {
     }
 
     render() {
-          const { personalInfo, experiences, educations } = this.props;
-
-          console.log(experiences);
+        const { personalInfo, experiences, educations } = this.props;
 
         return (
             <div className="resume">

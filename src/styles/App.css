@@ -3,6 +3,7 @@
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
+  print-color-adjust: exact;
 }
 
 .header {
@@ -27,4 +28,21 @@ h2 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 50px;
+  margin-bottom: 20px;
+}
+
+.footer {
+  background-color: #99A98F;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  color: white;
+}
+
+@media print
+{
+  .noprint {display:none;}
+  @page { margin: 0; }
+  body { margin: 1.6cm; }
+
 }

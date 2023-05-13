@@ -1,8 +1,10 @@
 .resume {
     flex-basis: 700px;
-    height: 900px;
+    min-height: 850px;
+    height: 100%;
     position: sticky;
     top: 20px;
+    box-shadow: 1px 6px 15px -5px rgba(0,0,0,0.30);
 }
 
 .resume-header {
@@ -32,6 +34,7 @@ h4 {
 .resume-body {
     display: flex;
     min-height: 750px;
+    height: 100%;
     background-color: rgb(238, 238, 238);
 }
 
