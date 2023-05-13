@@ -100,7 +100,7 @@ class App extends Component {
         </header>
         <main className='main'>
           <Form handleSectionChange={this.handleSectionChange} personalInfo={this.state.personalInfo} experiences={this.state.experiences} educations={this.state.educations} deleteExperience={this.deleteExperience} addNewSection={this.addNewSection}/>
-          <Resume />
+          <Resume personalInfo={this.state.personalInfo} experiences={this.state.experiences} experienceSection={this.state.experience} educations={this.state.educations} />
         </main>
       </div>
     );

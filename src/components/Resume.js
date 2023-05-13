@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import '../styles/Resume.css'
+import '../styles/Resume.css';
+import ExperienceResume from "./resume-components/ExperienceResume";
+import EducationResume from "./resume-components/EducationResume";
 
 class Resume extends Component {
     constructor(props) {
@@ -7,41 +9,34 @@ class Resume extends Component {
     }
 
     render() {
+          const { personalInfo, experiences, educations } = this.props;
+
+          console.log(experiences);
+
         return (
             <div className="resume">
                 <div className="resume-header">
-                    <h2>Enmanuel Sanchez Abarua</h2>
-                    <h3>Wev Developer</h3>
+                    <h2>{personalInfo.fName} {personalInfo.lName}</h2>
+                    <h3>{personalInfo.title}</h3>
                 </div>
                 <div className="resume-body">
 
                     <div className="main-info">
                         <h4>Description</h4>
-                        <p className="description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur placeat inventore labore deserunt, possimus iusto debitis quaerat eius et laboriosam consequuntur repellendus dolore illo, minima beatae commodi ipsam, molestias enim.
-                        </p>
+                        <p className="description">{personalInfo.description}</p>
 
                         <h4>Experience</h4>
                         <div className="experiences">
-                            <div className="experience section">
-                                <div className="bold">From - to</div>
-                                <div>
-                                    <p className="bold">Position</p>
-                                    <p className="place">Company, City</p>
-                                </div>
-                            </div>
+                            {experiences.slice(1).map(experience => {
+                                return <ExperienceResume key={experience.id} experience={experience} />
+                            })}
                         </div>
 
                         <h4>Education</h4>
                         <div className="educations">
-                            <div className="education section">
-                                <div className="bold">From - to</div>
-                                <div>
-                                    <p className="bold">University Name, city name</p>
-                                    <p>Degree:</p>
-                                    <p>Subject:</p>
-                                </div>
-                            </div>
+                            {educations.slice(1).map(education => {
+                                return <EducationResume key={education.id} education={education} />
+                            })}
                         </div>
                     </div>
 
@@ -49,15 +44,15 @@ class Resume extends Component {
                         <h4>Personal Details</h4>
                         <div className="detail">
                             <p className="bold">Address</p>
-                            <p>Example St 10</p>
+                            <p>{personalInfo.address}</p>
                         </div>
                         <div className="detail">
                             <p className="bold">Phone Number</p>
-                            <p>123456789</p>
+                            <p>{personalInfo.phoneNumber}</p>
                         </div>
                         <div className="detail">
                             <p className="bold">Email</p>
-                            <p>john.doe@gmail.com</p>
+                            <p>{personalInfo.email}</p>
                         </div>
                     </div>
                 </div>
