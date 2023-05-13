@@ -1,5 +1,68 @@
 .resume {
-    background-color: chocolate;
-    padding: 25px;
     flex-basis: 700px;
+    height: 900px;
+    position: sticky;
+    top: 20px;
+}
+
+.resume-header {
+    padding: 25px;
+    background-color: chocolate;
+    color: white;
+}
+
+
+.resume-header h2 {
+    font-size: 40px;
+}
+
+.resume-header h3 {
+    font-size: 25px;
+}
+
+h4 {
+    color: chocolate;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.534);
+    padding-bottom: 2px;
+    margin-bottom: 8px;
+}
+
+.resume-body {
+    display: flex;
+    min-height: 750px;
+    background-color: rgb(238, 238, 238);
+}
+
+.main-info {
+    padding: 25px;
+    flex: 2;
+}
+
+.personal-details {
+    padding: 25px;
+    flex: 1;
+    background-color: rgb(221, 221, 221);
+}
+
+.description {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.experiences {
+    margin-bottom: 20px;
+}
+
+.section {
+    display: flex;
+    gap: 50px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.detail {
+    margin-bottom: 15px;
 }
